@@ -18,7 +18,7 @@ trap cleanUp exit
 loggedInUserPid=$(python -c 'from SystemConfiguration import SCDynamicStoreCopyConsoleUser; username = SCDynamicStoreCopyConsoleUser(None, None, None)[1]; print(username);')
 launchctlCmd=$(python -c 'import platform; from distutils.version import StrictVersion as SV; print("asuser") if SV(platform.mac_ver()[0]) >= SV("10.10") else "bsexec"')
 
-packageDownloadUrl="https://www.nomad.menu/download/NoMAD.pkg"
+packageDownloadUrl="https://nomad.menu/download/NoMAD.pkg"
 
 pkgExpectedSize=$(/usr/bin/curl $packageDownloadUrl -ILs | /usr/bin/tr -d '\r' | /usr/bin/awk '/Content-Length:/ {print $2}')
 
